@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -171,6 +173,28 @@ const App = () => {
             <Container className="shadow p-3 bg-light rounded-3">
               <h2 className="border-bottom border-secondary mb-4">Badges Earned</h2>
               These are all the badges you've earned!
+              <CardGroup className="p-1 m-1">
+              {allSwitchesCheckedAchievementEarned && (
+                <Card style={{ width: '18rem' }} className="bg-info text-light">
+                  <Card.Header>🦾 Switchmaker</Card.Header>
+                  <Card.Body>
+                    <Card.Text>
+                      You toggled on all the toggle switches!
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              )}
+              {allButtonsClickedAchievementEarned && (
+                <Card style={{ width: '18rem' }} className="bg-info text-light">
+                  <Card.Header>🧞‍♀️ Button Genie</Card.Header>
+                  <Card.Body>
+                    <Card.Text>
+                      You clicked all the buttons!
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              )}
+              </CardGroup>
             </Container>
           </Col>
           <Col>
