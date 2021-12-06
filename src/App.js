@@ -68,6 +68,10 @@ const App = () => {
     const oldSwitch = switches[switchIndex];
     newSwitches[switchIndex] = {...oldSwitch, checked: isChecked};
     setSwitches(newSwitches);
+
+    addNewNotifications([
+      {title: 'Nice check', text: 'You checked a toggle switch... Keep going!', when: 'just now'},
+    ]);
   };
 
   const onButtonClick = (event) => {
@@ -80,6 +84,10 @@ const App = () => {
     const oldButton = buttons[buttonIndex];
     newButtons[buttonIndex] = {...oldButton, disabled: true};
     setButtons(newButtons);
+
+    addNewNotifications([
+      {title: 'Nice click', text: 'You clicked a button... Keep going!', when: 'just now'},
+    ]);
   }
 
   const seeIfAllButtonsClickedAchievementEarned = () => {
