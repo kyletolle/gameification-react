@@ -11,22 +11,18 @@ import './App.css';
 const App = () => {
   const [ messages, setMessages ] = useState([]);
 
-  const addNewNotification = (title, text, when) => {
-    const newMessage = { title: title, text: text, when: when };
-    setMessages([...messages, newMessage]);
+  const addNewNotifications = (messagesToAdd) => {
+    setMessages([...messages, ...messagesToAdd]);
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      addNewNotification('Gamification', 'Continue to do things to progress...', '2 minutes ago');
-    }, 1000)
-    setTimeout(() => {
-      addNewNotification('Congratulations', 'You did a thing!', '1 minute ago');
-    }, 3000)
+    addNewNotifications([
+      {title: 'Gamification', text: 'Complete some activities on the page to unlock some badges!', when: 'just now'},
+    ]);
   }, []);
 
   const onButtonClick = () => {
-    addNewNotification('New Toast', 'You just added a new toast', 'just now');
+    addNewNotifications([ { title: 'New Toast', text: 'You just added a new toast', when: 'just now'}]);
   }
 
   return (<Container className="p-3">
