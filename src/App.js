@@ -110,21 +110,23 @@ const App = () => {
   }, [completedAchievements]);
 
   return (
-    <Container className="p-3">
+    <Container className="p-0">
       <ToastContainer position="top-end" className="p-3">
         {messages && messages.map(({title, text, when}, index) => (
           <ToastAutohideable key={index} title={title} text={text} when={when} />
         ))}
       </ToastContainer>
-      <Container className="p-5 mb-4 bg-primary text-light rounded-3">
+
+      <Container className="shadow p-4 mt-3 mb-3 bg-primary text-light rounded-3">
         <h1 className="header">Welcome To Gamification</h1>
         <p>Complete some activities on the page to unlock some badges!</p>
       </Container>
-      <Container className="p-2">
+
+      <Container className="p-0 mb-3">
         <Row>
           <Col>
-            <Container className={`p-5 mb-4 ${allSwitchesCheckedAchievementEarned ? 'bg-success' : 'bg-info'} text-light rounded-3`}>
-              <h2 className="p-2">Check some switches</h2>
+            <Container className={`shadow p-3 ${allSwitchesCheckedAchievementEarned ? 'bg-success' : 'bg-info'} text-light rounded-3`}>
+              <h2 className="border-bottom border-light mb-4">Check some switches</h2>
               <Form>
                 {switches.map(({switchId, label, checked}, index) => (
                   <Form.Switch
@@ -140,8 +142,8 @@ const App = () => {
             </Container>
           </Col>
           <Col>
-            <Container className={`p-5 mb-4 ${allButtonsClickedAchievementEarned ? 'bg-success' : 'bg-info'} text-light rounded-3`}>
-              <h2>Click some buttons</h2>
+            <Container className={`shadow p-3 ${allButtonsClickedAchievementEarned ? 'bg-success' : 'bg-info'} text-light rounded-3`}>
+              <h2 className="border-bottom border-light mb-4">Click some buttons</h2>
               <div className="d-grid gap-2">
                 {buttons.map(({buttonId, text, disabled}, index) => (
                   <Button
@@ -150,20 +152,33 @@ const App = () => {
                     id={buttonId}
                     onClick={onButtonClick}
                     disabled={disabled}
+                    className="shadow"
                   >
-                  {text}
+                    {text}
                   </Button>
                 ))}
               </div>
             </Container>
           </Col>
         </Row>
-
       </Container>
-      <Container className="p-5 mb-4 bg-light rounded-3">
-        <h1>Progress</h1>
-        You've completed {completedAchievements} of {TOTAL_ACHIEVEMENTS} achievements.
-        <ProgressBar animated now={progress} />
+
+      <Container className="p-0 mb-3">
+        <Row>
+          <Col>
+            <Container className="shadow p-3 bg-light rounded-3">
+              <h2 className="border-bottom border-secondary mb-4">Badges Earned</h2>
+              These are all the badges you've earned!
+            </Container>
+          </Col>
+          <Col>
+            <Container className="shadow p-3 bg-light rounded-3">
+              <h2 className="border-bottom border-secondary mb-4">Progress</h2>
+              You've completed {completedAchievements} of {TOTAL_ACHIEVEMENTS} achievements.
+              <ProgressBar animated now={progress} className='my-3' />
+              </Container>
+          </Col>
+        </Row>
       </Container>
     </Container>
   );
