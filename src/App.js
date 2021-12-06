@@ -119,12 +119,6 @@ const App = () => {
 
   return (
     <Container className="p-0">
-      <ToastContainer position="top-end" className="p-3">
-        {messages && messages.map(({title, text, when}, index) => (
-          <ToastAutohideable key={index} title={title} text={text} when={when} />
-        ))}
-      </ToastContainer>
-
       <Container className="shadow p-4 mt-3 mb-3 bg-primary text-light rounded-3">
         <h1 className="header">Welcome To Gamification</h1>
         <p>Complete some activities on the page to unlock some badges!</p>
@@ -188,6 +182,12 @@ const App = () => {
           </Col>
         </Row>
       </Container>
+
+      <ToastContainer position="top-end" className="p-3">
+        {messages && messages.map(({title, text, when}, index) => (
+          <ToastAutohideable key={index} title={title} text={text} when={when} />
+        ))}
+      </ToastContainer>
     </Container>
   );
 };
