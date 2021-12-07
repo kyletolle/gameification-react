@@ -34,6 +34,7 @@ const App = () => {
   const [allButtonsClickedAchievementEarned, setAllButtonsClickedAchievementEarned] = useState(false);
   const [completedAchievements, setCompletedAchievements] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [allAchievementsEarned, setAllAchievementsEarned] = useState(false);
 
   const addNewNotifications = (messagesToAdd) => {
     setMessages([...messages, ...messagesToAdd]);
@@ -70,10 +71,6 @@ const App = () => {
     const oldSwitch = switches[switchIndex];
     newSwitches[switchIndex] = {...oldSwitch, checked: isChecked};
     setSwitches(newSwitches);
-
-    addNewNotifications([
-      {title: 'Nice check', text: 'You checked a toggle switch... Keep going!', when: 'just now'},
-    ]);
   };
 
   const onButtonClick = (event) => {
@@ -86,10 +83,6 @@ const App = () => {
     const oldButton = buttons[buttonIndex];
     newButtons[buttonIndex] = {...oldButton, disabled: true};
     setButtons(newButtons);
-
-    addNewNotifications([
-      {title: 'Nice click', text: 'You clicked a button... Keep going!', when: 'just now'},
-    ]);
   }
 
   const seeIfAllButtonsClickedAchievementEarned = () => {
@@ -119,16 +112,22 @@ const App = () => {
     setProgress(newProgress);
   }, [completedAchievements]);
 
+  // Check if all achievements are earned
   useEffect(() => {
     if(progress < 100) { return; }
 
+    setAllAchievementsEarned(true);
+  }, [progress]);
 
+  // Show a toast if all achievements are earned
+  useEffect(() => {
+    if (!allAchievementsEarned) { return; }
     setTimeout(() => {
       addNewNotifications([{
         title: "Completionist!", text: "Congratulations, you've earned all the achievements!", when: 'just now'
       }]);
     }, 3500)
-  })
+  }, [allAchievementsEarned]);
 
   return (
     <Container className="p-0">
@@ -212,8 +211,8 @@ const App = () => {
             <Container className="shadow p-3 bg-light rounded-3">
               <h2 className="border-bottom border-secondary mb-4">Progress</h2>
               You've completed {completedAchievements} of {TOTAL_ACHIEVEMENTS} achievements.
-              <ProgressBar animated={progress < 100} now={progress} className='my-2' variant={progress < 100 ? '' : 'success'} />
-              {progress === 100 && (
+              <ProgressBar animated={!allAchievementsEarned} now={progress} className='my-2' variant={allAchievementsEarned ? 'success' : ''} />
+              {allAchievementsEarned && (
                 <h3 className="text-center">🔥</h3>
               )}
               </Container>
