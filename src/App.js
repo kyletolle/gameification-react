@@ -212,7 +212,10 @@ const App = () => {
             <Container className="shadow p-3 bg-light rounded-3">
               <h2 className="border-bottom border-secondary mb-4">Progress</h2>
               You've completed {completedAchievements} of {TOTAL_ACHIEVEMENTS} achievements.
-              <ProgressBar animated now={progress} className='my-3' />
+              <ProgressBar animated={progress < 100} now={progress} className='my-2' variant={progress < 100 ? '' : 'success'} />
+              {progress === 100 && (
+                <h3 className="text-center">🔥</h3>
+              )}
               </Container>
           </Col>
         </Row>
