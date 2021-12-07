@@ -119,6 +119,17 @@ const App = () => {
     setProgress(newProgress);
   }, [completedAchievements]);
 
+  useEffect(() => {
+    if(progress < 100) { return; }
+
+
+    setTimeout(() => {
+      addNewNotifications([{
+        title: "Completionist!", text: "Congratulations, you've earned all the achievements!", when: 'just now'
+      }]);
+    }, 3500)
+  })
+
   return (
     <Container className="p-0">
       <Container className="shadow p-4 mt-3 mb-3 bg-primary text-light rounded-3">
