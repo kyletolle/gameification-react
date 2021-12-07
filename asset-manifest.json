@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/gameification-react/static/css/main.a617e044.chunk.css",
+    "main.js": "/gameification-react/static/js/main.a906de41.chunk.js",
+    "main.js.map": "/gameification-react/static/js/main.a906de41.chunk.js.map",
+    "runtime-main.js": "/gameification-react/static/js/runtime-main.a5f301f9.js",
+    "runtime-main.js.map": "/gameification-react/static/js/runtime-main.a5f301f9.js.map",
+    "static/css/2.8c0e6b67.chunk.css": "/gameification-react/static/css/2.8c0e6b67.chunk.css",
+    "static/js/2.e6e0fc0d.chunk.js": "/gameification-react/static/js/2.e6e0fc0d.chunk.js",
+    "static/js/2.e6e0fc0d.chunk.js.map": "/gameification-react/static/js/2.e6e0fc0d.chunk.js.map",
+    "static/js/3.477bc43c.chunk.js": "/gameification-react/static/js/3.477bc43c.chunk.js",
+    "static/js/3.477bc43c.chunk.js.map": "/gameification-react/static/js/3.477bc43c.chunk.js.map",
+    "index.html": "/gameification-react/index.html",
+    "static/css/2.8c0e6b67.chunk.css.map": "/gameification-react/static/css/2.8c0e6b67.chunk.css.map",
+    "static/css/main.a617e044.chunk.css.map": "/gameification-react/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.e6e0fc0d.chunk.js.LICENSE.txt": "/gameification-react/static/js/2.e6e0fc0d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a5f301f9.js",
+    "static/css/2.8c0e6b67.chunk.css",
+    "static/js/2.e6e0fc0d.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.a906de41.chunk.js"
+  ]
+}
