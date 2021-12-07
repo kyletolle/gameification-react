@@ -2,7 +2,7 @@
   "name": "gamification",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kyletolle.github.io/gameification-react",
+  "homepage": "https://kyletolle.github.io/gamification-react",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.0",
     "@testing-library/react": "^11.2.7",
